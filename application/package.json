@@ -1,0 +1,16 @@
+{
+  "name": "basic-js-app",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "tests": "jest",
+    "build": "echo 'Building the project...'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "author": "Scaler",
+  "license": "MIT"
+}
