@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd appilcation/
+          cd application/
           npm install
 
       - name: Run tests
@@ -46,7 +46,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd appication/
+          cd application/
           npm install
 
       - name: Run tests
