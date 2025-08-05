@@ -6,10 +6,10 @@ on:
   issues:
     types: [opened, edited, closed]
 
-  jobs:
-    issue_event:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Show Event Info
-          run: echo "Triggered by ${{ github.event_naem }} event"
-  
+jobs:
+  issue_event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show Event Info
+        run: echo "Triggered by ${{ github.event_naem }} event"
+
