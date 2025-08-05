@@ -2,7 +2,7 @@ name: Issue Events Demo
 
 on:
   issue_comment:
-    types: [creted]
+    types: [created]
   issues:
     types: [opened, edited, closed]
 
