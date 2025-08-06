@@ -1,0 +1,28 @@
+name: Manual Workflow Demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Enter your name"
+        required: true
+        default: "Nayan"
+      environment:
+        description: "Select the environment"
+        required: true
+        default: "staging"
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print User Input
+        run: |
+          echo "Hello, ${{ github.event.inputs.name }}"
+          echo "You selected the ${{ github.event.inputs.environment }} environment."
+          
