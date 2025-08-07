@@ -1,0 +1,49 @@
+name: Advanced Event Workflow
+
+on:
+  push:
+    branches:
+      - main
+      - "feature/**"   # Matches any branch starting with 'feature/'
+    paths:
+      - "**/*.py"   # Only triggers for changes in JavaScript files
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize   # Triggers on changes to the PR
+  workflow_dispatch:   # Allows manual triggering
+
+jobs:
+  analyze-event:
+    name: Analyze Event and Context
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Event Info
+        run: |
+          echo "Event Name: ${{ github.event_name }}"
+          echo "Action: ${{ girhub.event.action }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch/Tag: ${{ github.ref }}"
+          echo "Workflow Triggered By: ${{ github.actor }}"
+      - name: Conditional Logic with Expressions
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        run: |
+          echo "This is a push to the main branch!"
+      - name: Display files Modified (for PR events)
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          echo "Files changed in this PR:"
+          echo "${{ toJSON(github.event.pull_request.changed_files) }}"
+
+  run-specific-task:
+    name: Runs Tasks on Specific Conditions
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && startWith(github.ref, 'refs/heads/feature/')) }}
+    steps:
+      - name: Triggered by Workflow Dispatch or Feature Branch Push
+        run: |
+          echo "Running task due to a manual trigger or a push to a feature branch."
+
+
+      
