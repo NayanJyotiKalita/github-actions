@@ -5,7 +5,7 @@ on:
     types: [created]
   issues:
     types: [opened, edited, closed]
-
+ 
 jobs:
   issue_event:
     runs-on: ubuntu-latest
