@@ -1,9 +1,12 @@
 name: CI/CD Pipeline for node app
  
-# on:
-  # push:
+on:
+  push:
+    paths:
+      - .github/workflows/first-workflow.yaml
     branches:
       - main
+    
   pull_request:
     branches:
       - main
