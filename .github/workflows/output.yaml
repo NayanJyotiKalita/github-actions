@@ -1,0 +1,21 @@
+name: Example with Outputs
+
+on: 
+  push:
+
+jobs: 
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      output: ${{ steps.generate.outputs.result }}
+    steps:
+      - name: Generate Output
+        id: generate
+        run: echo "result=success" >> $GITHUB_OUTPUT
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: Access Output
+        run: echo "The output from jobs1 is ${{ needs.job1.outputs.output }}"
