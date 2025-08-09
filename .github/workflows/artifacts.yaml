@@ -1,6 +1,8 @@
 name: Artifacts Example
 on: 
   push:
+    paths:
+      - .github/workflows/artifacts.yaml
 
 jobs:
   build:
