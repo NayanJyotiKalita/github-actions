@@ -40,7 +40,7 @@ jobs:
   run-specific-task:
     name: Runs Tasks on Specific Conditions
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && startWith(github.ref, 'refs/heads/feature/')) }}
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature/')) }}
     steps:
       - name: Triggered by Workflow Dispatch or Feature Branch Push
         run: |
