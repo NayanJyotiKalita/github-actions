@@ -3,7 +3,7 @@ name: Caching Example
 on:
   push:
     paths:
-      - .github/workflows/caching.yaml
+      - .github/workflows/caching.yaml 
 
 jobs:
   build:
