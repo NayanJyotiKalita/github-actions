@@ -3,6 +3,7 @@ name: Advanced Event Workflow
 on:
   push:
     branches:
+      - .github/workflows/advance_events.yaml
       - main
       - "feature/**"   # Matches any branch starting with 'feature/'
     paths:
