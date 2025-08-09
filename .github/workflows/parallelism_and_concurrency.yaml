@@ -1,6 +1,9 @@
 name: Parallelism and Concurrency
 
-on: push
+on: 
+  push:
+    paths:
+      - .github/workflows/parallelism_and_concurrency.yaml
 
 jobs:
   build:
