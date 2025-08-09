@@ -2,6 +2,8 @@ name: Example with Outputs
 
 on: 
   push:
+    paths:
+      - .github/workflows/output.yaml
 
 jobs: 
   job1:
