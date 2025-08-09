@@ -1,0 +1,31 @@
+name: Service demo with PostgreSQL
+
+on: 
+ push:
+   paths:
+     - .github/workflows/service.yaml
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: testuser
+          POSTGRES_PASSWORD: testpass
+          POSTGRES_DB: testdb
+        options: >-
+          --health-cmd="pg_isready -U testuser"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+    steps:
+      - name: Check PostgreSQL
+        run: |
+          echo "Waiting for PostgreSQL to be ready..."
+          sleep 10
+      - name: Run Tests
+        run: echo "Running tests with PostfreSQL!"
