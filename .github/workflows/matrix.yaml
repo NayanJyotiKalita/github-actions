@@ -1,6 +1,9 @@
 name: Matrix Example
 
-on: push
+on:
+  push:
+    paths:
+      - .github/workflows/matrix.yaml
 
 jobs:
   test:
