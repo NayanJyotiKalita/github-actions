@@ -1,0 +1,43 @@
+name: Reusable Build and Test Workflow
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: "Environment to Build and Test"
+        required: true
+        type: string
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+          cache: npm
+          cache-dependency-path: application/package-lock.json
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: appicaiton/node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('application/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install Dependencies
+        run: npm install
+        working-directory: application
+
+      - name: Run Tests
+        run: npm test
+        working-directory: application
+
+      - name: Build Project
+        run: npm run build
+        working-directory: application
