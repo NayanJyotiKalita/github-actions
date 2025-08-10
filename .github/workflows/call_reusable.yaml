@@ -1,0 +1,15 @@
+name: Call Reusable Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to build and test'
+        required: true
+        type: string
+
+jobs:
+  call-reusable:
+    uses: ./.github/workflows/reusable_workflow.yaml
+    with:
+      environment: ${{ input.environment }}
