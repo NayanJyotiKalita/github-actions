@@ -6,7 +6,7 @@ on:
       - main
       - "feature/**"   # Matches any branch starting with 'feature/'
     paths:
-      - "**/*.py"   # Only triggers for changes in JavaScript files
+      #- "**/*.py"   # Only triggers for changes in JavaScript files
       - .github/workflows/advance_events.yaml
   pull_request:
     types:
