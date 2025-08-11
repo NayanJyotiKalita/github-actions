@@ -12,4 +12,4 @@ jobs:
   call-reusable:
     uses: ./.github/workflows/reusable_workflow.yaml
     with:
-      environment: ${{ input.environment }}
+      environment: ${{ inputs.environment }}
