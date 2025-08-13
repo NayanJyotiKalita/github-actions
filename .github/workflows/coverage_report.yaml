@@ -34,5 +34,5 @@ jobs:
           coverage run -m pytest      # Run tests and measure coverage
           coverage report             # Display the coverage report in the terminal
           coverage html               # Generate an HTML report in the 'htmlcov/' directory
-        working-directory: class/exampl_coverage_report
+        working-directory: class/example_coverage_report
           
