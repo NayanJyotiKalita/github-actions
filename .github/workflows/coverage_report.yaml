@@ -27,7 +27,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-        working-directory: class/exampl_coverage_report
+        working-directory: class/example_coverage_report
 
       - name: Run tests with coverage
         run: |
